@@ -12,7 +12,7 @@ import Navigate from './components/navigate'
 import Screen1 from './components/screen/screen1'
 import Screen2 from './components/screen/screen2'
 
-export default class rn_app extends Component {
+export default class Main extends Component {
    constructor(props) {
     super(props);
   }
@@ -36,7 +36,4 @@ export default class rn_app extends Component {
 }
 
 
-
-
-
-AppRegistry.registerComponent('rn_app', () => rn_app);
+AppRegistry.registerComponent('Main', () => Main);
