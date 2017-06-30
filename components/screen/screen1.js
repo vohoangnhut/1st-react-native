@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
+  StyleSheet,Platform,
   Text,Image,NetInfo,
   View, ListView, Button, Alert,TouchableHighlight
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 export default class Screen1 extends Component {
     constructor(props) {
@@ -13,12 +13,26 @@ export default class Screen1 extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return ( 
       <View style={{flex:1,backgroundColor:'#e74c3c',alignItems:'center',justifyContent:'center'}}>
-          
-          <Icon name="rocket" size={30} color="#900" />
-          <Text style={{fontSize:30,color:'#ecf0f1'}}>#e74c3c</Text>
+          <Icon name="emotsmile" size={50} color="#fff" />
+
+          <Text style={styles.text}>HOME</Text>
+          <Button
+            onPress={() => navigate('Details',{ user: 'Teo' })}
+            title="Go To Details"
+          />
       </View>
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: (Platform.OS === 'android') ? 'sans-serif-thin' : 'AppleSDGothicNeo-Thin',
+    color:'#fff',
+    fontSize:50
+  },
+})

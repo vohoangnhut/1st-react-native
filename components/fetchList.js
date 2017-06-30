@@ -7,7 +7,7 @@ import {
 
 
 
-export default class App extends Component {
+export default class fetchList extends Component {
    constructor(props) {
     super(props);
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})

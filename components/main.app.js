@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
+
+
 import {
-  StyleSheet,
+  StyleSheet,Platform,
   Text,Image,NetInfo,
   View, ListView, Button, Alert,TouchableHighlight
 } from 'react-native';
 
-import Screen1 from './screen/screen1'
+import { NavigateApp } from './navigate'
 
 export default class Main extends Component {
-    constructor(props) {
-    super(props);
-  }
-
   render() {
-    return ( 
-      <Screen1/>
+    return (
+      <NavigateApp />
     )
   }
 }
