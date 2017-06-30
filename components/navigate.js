@@ -16,7 +16,7 @@ const NavigatorComponent = StackNavigator({
   Home: { 
     screen: Screen1,  
     navigationOptions : {
-      header: null,
+      //header: null,
       title: 'Welcome',
       headerTitleStyle : {fontFamily: (Platform.OS === 'android') ? 'sans-serif-thin' : 'AppleSDGothicNeo-Thin'}
     }
@@ -32,8 +32,7 @@ const NavigatorComponent = StackNavigator({
     }
   }
 },{
-  initialRouteName : 'Details',
-  initialRouteParams : { user: 'Welcome' }
+  initialRouteName : 'Home'
 })
 
 const NavigatorComponent1 = StackNavigator({
