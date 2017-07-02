@@ -32,9 +32,9 @@ export default class Meni extends Component {
                       <Text style={styles.text}>  Setting</Text>
                     </Icon>
                 </TouchableHighlight>
-                <TouchableHighlight style={styles.menuTouchWrap} underlayColor={'#64a3ad'} onPress={()=>{}}>
+                <TouchableHighlight style={styles.menuTouchWrap} underlayColor={'#64a3ad'} onPress={()=>{this.props.navigation.navigate('adjustVolumns')}}>
                     <Icon name="event" style={styles.icon}>
-                      <Text style={styles.text}>  Notification</Text>
+                      <Text style={styles.text}>  Redux</Text>
                     </Icon>
                 </TouchableHighlight>
             </View>

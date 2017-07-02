@@ -12,8 +12,10 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 import Screen1 from './screen/screen1'
 import Screen2 from './screen/screen2'
 import Screen3 from './screen/screen3'
+import Screen4 from './screen/screen4'
 import Menu from './screen/menu'
 import Setting from './screen/setting'
+import AdjustVolumn from './screen/adjustVolumn'
 
 
 const stack1 = StackNavigator({
@@ -69,6 +71,16 @@ const stask3 = StackNavigator({
   }
 })
 
+const stask4 = StackNavigator({
+  Menu: { 
+    screen: Screen4,  
+    navigationOptions : {
+      header: null,
+      headerTitleStyle : {fontFamily: (Platform.OS === 'android') ? 'sans-serif-thin' : 'AppleSDGothicNeo-Thin'}
+    }
+  }
+})
+
 
 const Tabs = TabNavigator(
   { //Router
@@ -85,11 +97,11 @@ const Tabs = TabNavigator(
         title : 'Notification'
         ,tabBarIcon  : ({tintColor}) => <Icon name="equalizer" size={20} color={tintColor} />
       }
-    },Menu: {
-      screen: stask3,
+    },Screen: {
+      screen: stask4,
       navigationOptions : {
-        title : 'Menu'
-        ,tabBarIcon  : ({tintColor}) => <Icon name="menu" size={20} color={tintColor} />
+        title : 'Screen'
+        ,tabBarIcon  : ({tintColor}) => <Icon name="cursor" size={20} color={tintColor} />
       }
     },
   },{ //Config
@@ -114,6 +126,8 @@ const Tabs = TabNavigator(
       screen : Tabs
     },menuItem1:{
       screen: Setting
+    }, adjustVolumns: {
+      screen:AdjustVolumn
     }
   },{
   drawerWidth: 300,
