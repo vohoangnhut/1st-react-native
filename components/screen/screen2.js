@@ -22,6 +22,10 @@ export default class Screen2 extends Component {
       <View style={{flex:1,backgroundColor:'#2c3e50',alignItems:'center',justifyContent:'center'}}>
           <Icon name="earphones-alt" size={50} color="#fff" />
           <Text style={styles.text}>{params.user}</Text>
+          <Button
+            onPress={() => (this.props.navigation.navigate('DrawerOpen'))}
+            title="Menu" color='#fff'
+          />
       </View>
     )
   }
