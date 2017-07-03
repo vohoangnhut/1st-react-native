@@ -117,7 +117,7 @@ export default class Screen3 extends Component {
             title='Limited supply! Its like digital gold!'
             avatar={{uri:item.avatar_url}}
             //onPress={()=>{this._pressItem(item.name)}}
-            onPress={()=>{navigate('Details',{ user: item.name })}}
+            onPress={()=>{this.props.navigation.navigate('DetailsUser',{ user: item.name })}}
             title={item.name}
             containerStyle={{backgroundColor:'#e5e5e5' }}
             subtitle={
@@ -133,6 +133,7 @@ export default class Screen3 extends Component {
       }
 
   render() {
+        const { navigate } = this.props.navigation;
         return ( 
             <View style={styles.background}>
                 {/*<Icon name="rocket" size={50} color="#fff" />

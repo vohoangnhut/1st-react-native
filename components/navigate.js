@@ -58,6 +58,17 @@ const stack2 = StackNavigator({
       header: null,
       headerTitleStyle : {fontFamily: (Platform.OS === 'android') ? 'sans-serif-thin' : 'AppleSDGothicNeo-Thin'}
     }
+  },
+
+   DetailsUser: { 
+    screen: Screen2,
+    navigationOptions : {
+      headerTitleStyle :{color:'#e5e5e5', //textAlign: 'center',alignSelf:'center',
+                        fontFamily: (Platform.OS === 'android') ? 'sans-serif-thin' : 'AppleSDGothicNeo-Thin',},
+      // headerStyle:{
+      //     backgroundColor:'#2c3e50',
+      // },
+    }
   }
 })
 
