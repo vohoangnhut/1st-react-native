@@ -1,23 +1,92 @@
 import React, { Component, Dimensions } from 'react';
 import {
   StyleSheet,Platform,StatusBar,
-  Text,Image,NetInfo,
-  View, ListView, Alert,TouchableHighlight
+  Text,Image,NetInfo,ScrollView,FlatList,
+  View, ListView, Alert,TouchableHighlight,Modal
 } from 'react-native';
 
 import { Card, ListItem, Button, CheckBox , SearchBar, Avatar,
-Badge,ButtonGroup,Divider,Header,
+Badge,ButtonGroup,Divider,Header,List,
 } from 'react-native-elements';
 
+import DemoModal from '../modal/modal'
 
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 
-const users = [
- {
-    name: 'brynn',
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
- },
+const list = [
+  {
+    id:1,
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    subtitle: 'Vice President'
+  },
+  {
+    id:2,    
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    subtitle: 'Vice Chairman'
+  },{
+    id:3,    
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    subtitle: 'Vice President'
+  },
+  {
+    id:4,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:5,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:6,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:7,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:8,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:9,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:10,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:11,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  {
+    id:12,   
+    name: 'Jackie Chan',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
+    subtitle: 'Vice Chairman'
+  },
+  // more items
 ]
 
 
@@ -30,71 +99,65 @@ export default class Screen3 extends Component {
         }
     }
 
-    onPressCheckBox () {
+    _keyExtractor = (item, index) => item.id;
 
-      this.setState({
-        checked : !this.state.checked,
-      })
-
+    _pressItem(name){
+      Alert.alert(
+        'Alert',
+        name)
     }
 
-    updateIndex (selectedIndex) {
-  this.setState({selectedIndex})
-}
+     renderHeader = () => {
+      return <SearchBar placeholder="Type Here..." lightTheme round />;
+    };
+
+    _renderItem = ({item}) => (
+          <ListItem
+            roundAvatar
+            title='Limited supply! Its like digital gold!'
+            avatar={{uri:item.avatar_url}}
+            //onPress={()=>{this._pressItem(item.name)}}
+            onPress={()=>{navigate('Details',{ user: item.name })}}
+            title={item.name}
+            containerStyle={{backgroundColor:'#e5e5e5' }}
+            subtitle={
+              <View style={styles.subtitleView}>
+                <Text>{item.subtitle}</Text>
+              </View>
+            }
+          />
+      );
+
+      callChildMethod(){
+        console.log(this.refs)
+      }
 
   render() {
-    const buttons = ['Hello', 'World', 'Buttons']
-  const { selectedIndex } = this.state
         return ( 
             <View style={styles.background}>
                 {/*<Icon name="rocket" size={50} color="#fff" />
                 <Text style={styles.text}>Notification</Text>*/}
-<View style={{height:50}}>
-                <Header
-                  leftComponent={( <EntypoIcon name="chevron-left" size={30} color="#fff"/> )}
-                  centerComponent={( <EntypoIcon name="chevron-left" size={30} color="#fff"/> )}
-                  rightComponent={( <EntypoIcon name="chevron-left" size={30} color="#fff"/> )}
+                <FlatList
+                  ListHeaderComponent={()=>{return <SearchBar placeholder="Type Here..." round />}}
+                  data={list}
+                  keyExtractor={this._keyExtractor}
+                  renderItem={this._renderItem}
+                  ListFooterComponent={()=>{return <Button
+                      raised
+                      backgroundColor='#3f51b5'
+                      icon={{name: 'cached'}}
+                      onPress={()=> {this.refs.abc.setModalVisible(true)}}
+                      title='SHOW MODAL' />
+                  }}
                 />
-                </View>
-                <View>
+
                 
-                <SearchBar
-                  round
-                  onChangeText={()=>{}}
-                  placeholder='Type Here...' />
-                                
-                <CheckBox
-                  center
-                  title='Click Here'
-                  checkedIcon='dot-circle-o'
-                  uncheckedIcon='circle-o'
-                  checked={this.state.checked}
-                  onPress = {this.onPressCheckBox.bind(this)}
-                />
-
-                <Avatar
-                  small
-                  rounded
-                  source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
-                  onPress={() => console.log("Works!")}
-                  activeOpacity={0.7}
-                />
-
-                <Divider style={{ backgroundColor: 'yellow' }} />
-
-                <Badge containerStyle={{ backgroundColor: 'violet'}}>
-                  <Text>User 1</Text>
-                </Badge>
-
-                <ButtonGroup
-                onPress={this.updateIndex.bind(this)}
-                selectedIndex={selectedIndex}
-                buttons={buttons}
-                containerStyle={{height: 100}} />
-                </View>
 
 
+               
 
+                
+                <DemoModal ref='abc'/>
             </View>
         )
     }
@@ -114,4 +177,9 @@ const styles = StyleSheet.create({
     color:'#fff',
     fontSize:50
   },
+  subtitleView: {
+    flexDirection: 'row',
+    paddingLeft: 10,
+  },
+
 })
