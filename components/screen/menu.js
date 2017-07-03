@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
   },text : {
     fontSize: 25,
     color: '#fff',
-    fontFamily: (Platform.OS === 'android') ? 'sans-serif-thin' : 'AppleSDGothicNeo-Thin',
+    fontFamily: (Platform.OS === 'android') ? 'sans-serif-light' : 'AppleSDGothicNeo-Thin',
   }
 })

@@ -22,7 +22,7 @@ export default class Screen1 extends Component {
           <Text style={styles.text}>HOME</Text>
           <Button
             onPress={() => navigate('Details',{ user: 'Teo' })}
-            title="Go To Details" color='#fff'
+            title="Go To Details" color='#841584'
           />
       </View>
     )

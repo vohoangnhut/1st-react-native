@@ -94,13 +94,13 @@ const Tabs = TabNavigator(
     Notifications: {
       screen: stack2,
       navigationOptions : {
-        title : 'Notification'
+        title : 'Notification'     
         ,tabBarIcon  : ({tintColor}) => <Icon name="equalizer" size={20} color={tintColor} />
       }
     },Screen: {
       screen: stask4,
       navigationOptions : {
-        title : 'Screen'
+        title : 'Screen' 
         ,tabBarIcon  : ({tintColor}) => <Icon name="cursor" size={20} color={tintColor} />
       }
     },
@@ -110,6 +110,7 @@ const Tabs = TabNavigator(
     initialRouteName: 'Home',
     tabBarOptions: {
         showIcon : true,
+        showLabel : false,
         activeTintColor: '#ff274b',
         inactiveTintColor: '#878787',
         style: {

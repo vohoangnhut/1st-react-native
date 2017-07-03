@@ -18,8 +18,8 @@ export default class Setting extends Component {
         return ( 
             <View style={styles.background}>
                 <View style={styles.header}>
-                    <TouchableOpacity onPress={()=>{this.props.navigation.goBack()}}>
-                    <EntypoIcon name="chevron-left" size={30} color="#fff" style={{paddingLeft:10}} />
+                    <TouchableOpacity onPress={()=>{this.props.navigation.goBack()}} style={styles.backButton}>
+                        <EntypoIcon name="chevron-left" size={30} color="#fff"/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.body}>
@@ -38,11 +38,19 @@ const styles = StyleSheet.create({
     backgroundColor:'#16a085',
     paddingTop: (Platform.OS === 'ios') ? 20:0,
     
-    },
+},
+
   header: {
     backgroundColor:'#16a085',
     height:50
   },
+   backButton: {
+    backgroundColor:'#16a085',
+    width:30,
+    marginTop:10,
+    marginLeft:10
+  },
+
   body: {
       flex: 1,
     alignItems:'center',justifyContent:'center'
