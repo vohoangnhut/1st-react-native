@@ -95,7 +95,8 @@ export default class Screen3 extends Component {
         super(props);
         this.state = {
           checked : false,
-          selectedIndex: 2
+          selectedIndex: 2,
+          _listData : list
         }
     }
 
@@ -132,6 +133,13 @@ export default class Screen3 extends Component {
         console.log(this.refs)
       }
 
+      _changeSearchBar(text) {
+         const filteredAssets = this.state._listData.filter(asset => asset.name.indexOf(text) !== -1);
+        this.setState({
+          _listData: filteredAssets
+        });
+      }
+
   render() {
         const { navigate } = this.props.navigation;
         return ( 
@@ -139,8 +147,8 @@ export default class Screen3 extends Component {
                 {/*<Icon name="rocket" size={50} color="#fff" />
                 <Text style={styles.text}>Notification</Text>*/}
                 <FlatList
-                  ListHeaderComponent={()=>{return <SearchBar placeholder="Type Here..." round />}}
-                  data={list}
+                  ListHeaderComponent={()=>{return <SearchBar placeholder="Type Here..." round onChangeText={(text)=>{this._changeSearchBar(text)}}/>}}
+                  data={this.state._listData}
                   keyExtractor={this._keyExtractor}
                   renderItem={this._renderItem}
                   ListFooterComponent={()=>{return <Button
