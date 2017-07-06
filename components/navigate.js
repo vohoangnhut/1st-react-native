@@ -18,6 +18,7 @@ import Setting from './screen/setting'
 import AdjustVolumn from './screen/adjustVolumn'
 
 
+
 const stack1 = StackNavigator({
   Home: { 
     screen: Screen1,  
@@ -93,49 +94,56 @@ const stask4 = StackNavigator({
 })
 
 
-const Tabs = TabNavigator(
-  { //Router
-    Home: {
-      screen: stack1,
-      navigationOptions : {
-        title : 'Home',
-        tabBarIcon  : ({tintColor}) => <Icon name="home" size={20} color={tintColor} />
-      }
-    },
-    Notifications: {
-      screen: stack2,
-      navigationOptions : {
-        title : 'Notification'     
-        ,tabBarIcon  : ({tintColor}) => <Icon name="equalizer" size={20} color={tintColor} />
-      }
-    },Screen: {
-      screen: stask4,
-      navigationOptions : {
-        title : 'Screen' 
-        ,tabBarIcon  : ({tintColor}) => <Icon name="cursor" size={20} color={tintColor} />
-      }
-    },
-  },{ //Config
-    tabBarPosition : 'bottom',
-    swipeEnabled: true,
-    initialRouteName: 'Home',
-    tabBarOptions: {
-        showIcon : true,
-        showLabel : false,
-        activeTintColor: '#ff274b',
-        inactiveTintColor: '#878787',
-        style: {
-          backgroundColor: '#f8f8f8',
-        },
-        titleStyle: {
-          color: 'white',
-        }
-    }
-  });
+// const Tabs = TabNavigator(
+//   { //Router
+//     Home: {
+//       screen: stack1,
+//       navigationOptions : {
+//         title : 'Home',
+//         tabBarIcon  : ({tintColor}) => <Icon name="home" size={20} color={tintColor} />,
+        
+//       },
+//       tabBarOptions: {
+//         style: {
+//           backgroundColor: 'blue',
+//         }
+//       }
+//     },
+//     Notifications: {
+//       screen: stack2,
+//       navigationOptions : {
+//         title : 'Notification'     
+//         ,tabBarIcon  : ({tintColor}) => <Icon name="equalizer" size={20} color={tintColor} />
+//       }
+//     },Screen: {
+//       screen: stask4,
+//       navigationOptions : {
+//         title : 'Screen' 
+//         ,tabBarIcon  : ({tintColor}) => <Icon name="cursor" size={20} color={tintColor} />
+//       }
+//     },
+//   },{ //Config
+//     tabBarPosition : 'bottom',
+//     swipeEnabled: true,
+//     initialRouteName: 'Home',
+//     tabBarOptions: {
+//         showIcon : true,
+//         showLabel : false,
+//         activeTintColor: '#ff274b',
+//         inactiveTintColor: '#878787',
+//         style: {
+//           backgroundColor: '#ee6563',//'#f8f8f8',
+//           //width:40,
+//         },
+//         titleStyle: {
+//           color: 'white',
+//         }
+//     }
+//   });
 
   export const NavigateApp = DrawerNavigator({
     Menu : {
-      screen : Tabs
+      screen : stack1
     },menuItem1:{
       screen: Setting
     }, adjustVolumns: {
